@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Coupon Form</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="couponForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Coupon Name </mat-label>
+      <input formControlName="coupon_name" matInput placeholder="Post Title" type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Coupon Limit</mat-label>
+      <input formControlName="coupon_limit" matInput placeholder="Post Title" type="number" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Starting Date</mat-label>
+      <input formControlName="start_date" matInput [matDatepicker]="picker1" />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>End Date</mat-label>
+      <input formControlName="expires_at" matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-dialog-actions [align]="'end'">
+      <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+      <button mat-raised-button color="primary" (click)="addCoupon()">{{ actionButton }}</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>
